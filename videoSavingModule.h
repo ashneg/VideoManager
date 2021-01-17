@@ -6,7 +6,7 @@
 using namespace std;
 using namespace cv;
 
-int videoSaver(int path, string loggedUserDir){
+int videoSaver(){
 	int duration;
 	cout<<"Enter the duration of video\n";
 	cin>>duration;
@@ -28,7 +28,6 @@ int videoSaver(int path, string loggedUserDir){
         imshow( "Frame", frame );
         char c = (char)waitKey(33);
     }
-    if(path == 2) system(("mv out.avi "+loggedUserDir).c_str());
-    cout << "\nSuccessful\n";
+    cout << "\nSuccessful\n";//completed message
   return 0;
 }
