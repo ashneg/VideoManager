@@ -4,7 +4,7 @@
 using namespace cv;
 using namespace std;
 
-int gaussianFilter()
+int gaussianFilter(int path)
 {
     VideoCapture cap("./out.avi");
     if (cap.isOpened() == false)

@@ -34,14 +34,14 @@ public:
 // public:
 	bool userRegistration(){
 		string userName,userPassword;
-		cout<<"\n\n Register Yourself \n\n";
+		cout<<"\nRegister Yourself \n";
 		cout<<"Enter your new user name: ";
 		cin>>userName;
 		if((userData.find(userName) == userData.end())){
-			cout<<"\n Enter your Password: ";
+			cout<<"\nEnter your Password: ";
 			cin>>userPassword;
 			userData[userName] = userPassword;
-			cout<<"Successfully registered"<<endl;
+			cout<<"\nSuccessfully registered\n"<<endl;
 			string createDir = "mkdir ./users/";
 			createDir.append(userName);
 			system((createDir).c_str());
@@ -102,7 +102,7 @@ public:
 		}
 		else{
 			if(ch == "r" || ch == "R"){
-				cout<<"\n\n Register Yourself \n\n";
+				// cout<<"\n\n Register Yourself \n\n";
 				return 'r';
 			}
 			else return 'l';
