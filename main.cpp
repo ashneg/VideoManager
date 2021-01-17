@@ -23,9 +23,9 @@ int main(){
 	}
 	if(user.loggedIN){
 		userFunctionalities operations;
-		cout<<"\nEnter your choice "<<user.loggedUser<<endl;
+		// cout<<"\nEnter your choice "<<user.loggedUser<<endl;
 		operations.choice("./users/"+user.loggedUser);
-		system(("mv out.avi ./users/"+user.loggedUser).c_str());
+		// system(("mv out.avi ./users/"+user.loggedUser).c_str());
 	}
 	return 0;
 }

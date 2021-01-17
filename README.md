@@ -5,4 +5,4 @@
   - Execute the command ``g++ main.cpp -o app `pkg-config --cflags --libs opencv` -std=c++14``
   - execute by `./app`
   
-#### For windows user head toward docker branch and run the container 
+#### Steps to run without any installation 

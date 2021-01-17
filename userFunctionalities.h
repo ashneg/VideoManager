@@ -37,13 +37,6 @@ class userFunctionalities{
 			}
 		}
 
-		void allInOne(){
-			getvideoName();
-			videoSaver();
-			argsSet = true;
-			 convertToColor();
-		}
-
 
 		void getvideoName(){
 			cout<<"Enter the output video name: ";
@@ -58,18 +51,25 @@ class userFunctionalities{
 		}
 
 		//Converts to diffrent channel
-		void convertToColor(){
+		void convertToColor(int pth,string loggedUserDir){
 			if(!argsSet)convertToColorArgs();
-			convertToRed(videoLocation,videoColor,outVideoName);
+			convertToRed(videoLocation,videoColor,outVideoName,pth,loggedUserDir);
 		}
 
 		void videoLister(string loggedUserDir){
-			string fileName;
+			// string fileName;
 			system(("ls "+ loggedUserDir).c_str());
 			// cout<<"Enter a file name to be opened: ";
 			// cin>>fileName;
 			// cout<<endl;
 			// system(("xdg-open "+ loggedUserDir + "/"+ fileName).c_str());
+		}
+
+		void allInOne(){
+			getvideoName();
+			videoSaver(5,NULL);
+			argsSet = true;
+			convertToColor(5,NULL);
 		}
 
 		void choice(string loggedUserDir){
@@ -78,18 +78,18 @@ class userFunctionalities{
 			switch(userFunctionalitiesChoice){
 				case 1: videoLister(loggedUserDir);
 					break;
-				case 2: videoSaver();
+				case 2: videoSaver(2,loggedUserDir);
 					break;
-				case 3:convertToColor();
+				case 3:convertToColor(3,loggedUserDir);
 					break;
-				case 4:gaussianFilter();
+				case 4:gaussianFilter(4);
 					break;
 				case 5: allInOne();
 					break;
 				default:cout<<"Wrong Choice please try again"<<endl;
 					choice(loggedUserDir);
 			}
-			system(("mv "+outVideoName+".avi "+loggedUserDir).c_str());
+			// 
 		}
 
 };

@@ -1,14 +1,12 @@
-#include <iostream> // for standard I/O
-#include <string>   // for strings
-#include <opencv2/core.hpp>     // Basic OpenCV structures (cv::Mat)
-#include <opencv2/videoio.hpp>  // Video write
+#include <iostream> 
+#include <opencv2/opencv.hpp>
 
 using namespace std;
 using namespace cv;
 
-int convertToRed(string path,char color,string outputVideoName)
+int convertToRed(string path,char color,string outputVideoName,int pth,string loggedUserDir)
 {
-    VideoCapture inputVideo(path);              // Open input
+    VideoCapture inputVideo(path);
     if (!inputVideo.isOpened())
     {
         cout  << "Could not open the input video: " << path << endl;
@@ -29,7 +27,7 @@ int convertToRed(string path,char color,string outputVideoName)
     int channel = 2;
     Mat src, res;
     vector<Mat> spl;
-    for(;;){
+    while(1){
         inputVideo >> src;             
         if (src.empty()) break;        
         split(src, spl);               
@@ -39,5 +37,6 @@ int convertToRed(string path,char color,string outputVideoName)
        merge(spl, res);
        outputVideo << res;
     }
+    if(pth == 3)system(("mv "+outputVideoName+".avi "+loggedUserDir).c_str());
     return 0;
 }
